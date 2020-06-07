@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Feather as Icon} from '@expo/vector-icons';
-import { StyleSheet, View, Image, ImageBackground, Text, TextInput, KeyboardAvoidingView, Platform  } from 'react-native';
+import { StyleSheet, View, Image, ImageBackground, Text, KeyboardAvoidingView, Platform  } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
