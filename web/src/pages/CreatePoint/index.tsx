@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft, FiCheckCircle } from 'react-icons/fi'
 import { Map, TileLayer, Marker } from 'react-leaflet';
 import { LeafletMouseEvent } from 'leaflet';
+import _ from 'lodash';
 
 import axios from 'axios';
 import api from '../../services/api';
@@ -11,6 +12,7 @@ import './styles.css'
 
 import Dropzone from '../../components/Dropzone';
 import logo from '../../assets/logo.svg'
+import Toast, { showToast } from '../../components/Toast';
 
 interface Item {
   id: number;
@@ -140,6 +142,11 @@ const CreatePoint = () => {
       data.append('image', selectedFile);
     }
 
+    if(_.isEmpty(items)) {
+      showToast("error", "Ooops... Selecione ao menos um item.");
+      return;
+    }
+
     await api.post('/points', data);
 
     setRegisterCompleted(true);
@@ -148,6 +155,7 @@ const CreatePoint = () => {
 
   return (
     <div id="page-create-point">
+      <Toast/>
 
       {registerCompleted ? <div id="register-completed">
         <FiCheckCircle size={40} color={"#00FF00"} />
