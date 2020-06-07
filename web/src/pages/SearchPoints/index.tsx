@@ -9,6 +9,7 @@ interface pointsData {
   id: number;
   city: string;
   image: string;
+  image_url: string
   name: string;
   uf: string;
 }
@@ -24,7 +25,7 @@ interface ReceivedData {
 
 const SearchPoints = (data: ReceivedData) => {
   const points = data.location.state.pointsData;
-
+  
   return (
 
     <div id="page-search-points">
@@ -50,7 +51,7 @@ const SearchPoints = (data: ReceivedData) => {
           {points.map(item => (
 
             <div key={item.id} id="point">
-              <img src={item.image} alt={item.name}/>
+              <img src={item.image_url} alt={item.name}/>
               <h1>{item.name}</h1>
               <strong>Lâmpadas, Pilhas e Baterias</strong>
               <span>{item.city}, {item.uf}</span>
