@@ -28,8 +28,8 @@ const Home = () => {
 
   function handleNagivateToPonints(){
     navigation.navigate('Points', {
-      selectedUf,
-      selectedCity,
+      uf: selectedUf,
+      city: selectedCity,
     });
   }
 
